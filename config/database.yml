@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: vet_clinic
+  database: blog_app_project
   host: 127.0.0.1
   username: postgres
   password: 1234
