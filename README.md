@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/ROR-Template-blueviolet)
 
-# Project Title
+# Blog App
 
-> Description of the project
+> A typical example of a blog website is the Blog app. I built a completely working website that displays a list of topics and allows visitors to engage with them by leaving comments and like them.
 
 
 ## Built With
@@ -15,8 +15,8 @@
 To get a local copy up and running follow these simple steps.
 
 ```bash
-$ git clone https://github.com/omarsalem7/{repo-name}
-$ cd {repo-name}
+$ git clone https://github.com/omarsalem7/Blog-app
+$ cd Blog-app
 $ bundle install 
 ```
 
