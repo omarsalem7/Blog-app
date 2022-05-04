@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'response body includes correct placeholder text' do
-      expect(response.body).to include('Welcome to Users page')
+      expect(response.body).to include('List of users')
     end
 
     describe 'GET #show' do
@@ -29,6 +29,9 @@ RSpec.describe 'Users', type: :request do
 
       it 'renders a correct template' do
         expect(response).to render_template(:show)
+      end
+      it 'renders content correctly' do
+        expect(response.body).to include('User Details')
       end
     end
   end
