@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: blog_app_project
+  database: blog_app
   host: 127.0.0.1
   username: postgres
   password: 1234
