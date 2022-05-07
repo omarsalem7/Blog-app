@@ -91,6 +91,7 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.10.0)
+    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -230,6 +231,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.1)
+      tzinfo (>= 1.0.0)
     unicode-display_width (2.1.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -254,6 +257,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  ffi (~> 1.15, >= 1.15.5)
   importmap-rails
   jbuilder
   pg (~> 1.1)
