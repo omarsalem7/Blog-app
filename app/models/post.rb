@@ -4,10 +4,10 @@ class Post < ApplicationRecord
   has_many :likes
 
   def update_post_counter
-    user.increment(:post_counter)
+    user.increment!(:posts_counter)
   end
 
-  def recent_five_comments(post_id)
-    Comment.where(post_id:).order(created_at: desc).first(5)
+  def recent_five_comments()
+    comments.order(created_at: :desc).limit(5)
   end
 end
