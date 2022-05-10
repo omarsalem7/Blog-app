@@ -1,1 +1,15 @@
-<h1>List of users</h1>
+<section>
+  <% @users.each do |user| %>
+    <div class="d-flex justify-content-between">
+      <div>
+        <img src="<%= user.photo %>" alt='User Avatar' style="width:20%" />
+      </div>
+      <div class='flex-grow-1 d-flex justify-content-between align-items-center'>
+        <a href="/users/<%= user.id %>">
+          <h1><%= user.name %></h1>
+        </a>
+        <p>Number of posts: <%= user.posts_counter || 0 %></p>
+      </div>
+    </div>
+  <%end%>
+</section>
