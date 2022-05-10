@@ -1,1 +1,34 @@
 <h1>List of all posts</h1>
+<section>
+  <div class="d-flex justify-content-between">
+    <div>
+      <img src="<%= @user.photo %>" alt='User Avatar' style="width:20%" />
+    </div>
+    <div class='flex-grow-1 d-flex justify-content-between align-items-center'>
+      <a href="/users/<%= @user.id %>/posts">
+        <h1><%= @user.name %></h1>
+      </a>
+      <p>Number of posts: <%= @user.posts_counter || 0 %></p>
+    </div>
+  </div>
+  <div class='posts mt-5'>
+    <% @posts.each_with_index do |post,index| %>
+      <a href="posts/<%= post.id%>">
+        <div class="border border-dark p-2 mb-2">
+          <h3>post #<%= index+1 %></h3>
+          <p><%= post.text%></p>
+          <div class="d-flex justify-content-end">
+            <span>Comments: <%= post.comments_counter || 0 %> </span>
+            <span>, Likes: <%= post.likes_counter || 0 %></span>
+          </div>
+        </div>
+      </a>
+      <ul class="comments">
+        Comments:
+        <% post.recent_five_comments.each do |comment|%>
+          <li><%= comment.user.name %> : <%= comment.text %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</section>

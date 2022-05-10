@@ -94,6 +94,7 @@ GEM
     ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    htmlbeautifier (1.4.2)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.3)
@@ -258,6 +259,7 @@ DEPENDENCIES
   capybara
   debug
   ffi (~> 1.15, >= 1.15.5)
+  htmlbeautifier
   importmap-rails
   jbuilder
   pg (~> 1.1)

@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
+gem 'htmlbeautifier'
+
 gem 'ffi', '~> 1.15', '>= 1.15.5'
 # linters installitions
 gem 'rubocop', '>= 1.0', '< 2.0'

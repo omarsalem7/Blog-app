@@ -1,1 +1,18 @@
-<h1>Post details</h1>
+<section class="mt-4">
+  <div class="border border-dark p-2 mb-2">
+    <div class="d-flex justify-content-between">
+      <h3>post #<%= @post.id %> by <%= @post.user.name %></h3>
+      <div class="">
+        <span>Comments: <%= @post.comments_counter || 0 %> </span>
+        <span>, Likes: <%= @post.likes_counter || 0 %></span>
+      </div>
+    </div>
+    <p><%= @post.text%></p>
+  </div>
+  <ul class="comments">
+    Comments:
+    <% @comments.each do |comment|%>
+      <li><%= comment.user.name %> : <%= comment.text %></li>
+    <% end %>
+  </ul>
+</section>
