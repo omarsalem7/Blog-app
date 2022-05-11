@@ -20,3 +20,20 @@ a {
 .text-area {
   height: 150px;
 }
+
+.commentIcon:hover,
+.likeIcon:hover {
+  color: rgb(240, 148, 0);
+  cursor: pointer;
+}
+
+.react-btn {
+  all: unset;
+  cursor: pointer;
+  color: rgb(31, 31, 255);
+}
+
+.react-btn:hover,
+.react-bar a:hover {
+  color: chocolate;
+}

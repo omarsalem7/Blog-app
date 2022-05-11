@@ -7,7 +7,7 @@
       <% end %>
     </div>
   <% end %>
-  <%= form_with model: @new_post, url: new_user_post_path(@current_user)  do |form|  %>
+  <%= form_with model: @new_post, url: user_posts_path(@current_user)  do |form|  %>
     <div class="mb-3">
       <%= form.label :title ,class: "form-label" %>
       <%= form.text_field :title ,class: "form-control" %>

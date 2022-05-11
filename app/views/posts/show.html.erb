@@ -8,6 +8,12 @@
       </div>
     </div>
     <p><%= @post.text%></p>
+    <div class="react-bar mt-2 d-flex justify-content-between">
+      <%= form_with model: @new_like, url: user_post_likes_path(post_id: @post.id)  do |form|  %>
+        <%= form.submit "Add like 👍" ,class: "react-btn" %>
+      <% end %>
+      <%= link_to "Add comment 💬", new_user_post_comment_path(user_id: @post.user_id, post_id: @post.id ) %>
+    </div>
   </div>
   <ul class="comments">
     Comments:

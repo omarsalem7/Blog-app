@@ -8,7 +8,6 @@
       <h1><%= @user.name %></h1>
       <div>
         <p>Number of posts: <%= @user.posts_counter || 0 %></p>
-        
         <%= link_to "Add post", new_user_post_path(@user.id), class: "d-flex justify-content-center"  %>
       </div>
     </div>
@@ -16,13 +15,15 @@
   <div class='posts mt-5'>
     <% @posts.each_with_index do |post,index| %>
       <div class="border border-dark p-2 mb-2">
-        <a href="posts/<%= post.id%>">
-          <h3>post #<%= index+1 %></h3>
-        </a>
-        <p><%= post.text%></p>
-        <div class="d-flex justify-content-end">
-          <span>Comments: <%= post.comments_counter || 0 %> </span>
-          <span>, Likes: <%= post.likes_counter || 0 %></span>
+        <div>
+          <a href="posts/<%= post.id%>">
+            <h3>post #<%= index+1 %></h3>
+          </a>
+          <p><%= post.text%></p>
+          <div class="d-flex justify-content-end">
+            <span>Comments: <%= post.comments_counter || 0 %> </span>
+            <span>, Likes: <%= post.likes_counter || 0 %></span>
+          </div>
         </div>
       </div>
       <ul class="comments">
