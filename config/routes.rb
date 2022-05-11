@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'posts/posts'
-  get 'home/home'
   root 'users#index'
 
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show, :new, :create]
   end
-end
+
+  post "/users/:id/posts/new" , to: "posts#create" 
+
+end 
+

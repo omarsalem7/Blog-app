@@ -16,3 +16,7 @@
 a {
   text-decoration: none;
 }
+
+.text-area {
+  height: 150px;
+}
