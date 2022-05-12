@@ -1,0 +1,8 @@
+<h1>Add New Comment</h1>
+<%= form_with model: @new_comment, url: user_post_comments_path  do |form|  %>
+  <div class="mb-3">
+    <%= form.label :Comment ,class: "form-label" %>
+    <%= form.text_area :text ,class: "form-control text-area" %>
+  </div>
+  <%= form.submit "Add new comment" ,class: "btn btn-outline-dark" %>
+<% end %>

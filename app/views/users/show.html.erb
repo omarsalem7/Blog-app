@@ -1,4 +1,4 @@
-<section>
+<section class="pb-4">
   <div class="d-flex justify-content-between">
     <div>
       <img src="<%= @user.photo %>" alt='User Avatar' style="width:20%" />
@@ -13,6 +13,7 @@
   <div class='border border-dark p-4'>
     <h3>Bio</h3>
     <%= @user.bio %>
+ 
   </div>
   <div class='posts mt-5'>
     <% @user.recent_posts.each_with_index do |post,index| %>
