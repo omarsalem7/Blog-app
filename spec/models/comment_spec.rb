@@ -1,15 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  subject { Comment.new(post_id: Post.new(user: User.new(name: 'omar', photo: 'imagephoto', bio: 'software engineer'), title: 'My title', text: 'My hello world test').id , user_id:  User.new(name: 'omar', photo: 'imagephoto', bio: 'software engineer').id, text: 'software engineer') }
-  before { subject.save }
+  before(:each) do
+    @user = User.new(name: 'omar', photo: 'imagelink', bio: 'software enginner')
+    @post = Post.new(user: @user, title: 'asd title', text: 'My hello')
+    @comment = Comment.new(text: 'First comment', user_id: @user.id, post_id: @post.id)
+  end
 
   it 'text should be present' do
-    subject.text = nil
-    expect(subject).to_not be_valid
+    @comment.text = nil
+    expect(@comment).to_not be_valid
   end
+
   it 'if post_id is integer' do
-    subject.post_id = "123"
-    expect(subject).to_not be_valid
+    @comment.post_id = '123'
+    expect(@comment).to_not be_valid
   end
 end

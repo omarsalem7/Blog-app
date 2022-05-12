@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { Post.new(user: User.new(name: 'omar', photo: 'imagephoto', bio: 'software engineer'), title: 'My title', text: 'My hello world test') }
+  subject do
+    Post.new(user: User.new(name: 'omar', photo: 'imagephoto', bio: 'software engineer'), title: 'My title',
+             text: 'My hello world test')
+  end
   before { subject.save }
-
 
   it 'validate post' do
     expect(subject).to be_valid

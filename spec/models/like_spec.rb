@@ -1,15 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  subject { Like.new(post_id: Post.new(user: User.new(name: 'omar', photo: 'imagephoto', bio: 'software engineer'), title: 'My title', text: 'My hello world test').id , user_id:  User.new(name: 'omar', photo: 'imagephoto', bio: 'software engineer').id) }
-  before { subject.save }
+  before(:each) do
+    @user = User.create(name: 'omar', photo: 'imagelink', bio: 'software engineer')
+    @post = Post.create(user: @user, title: 'sda title', text: 'My textsad s')
+    @like = Like.create(user_id: @user.id, post_id: @post.id)
+  end
 
   it 'if post_id is integer' do
-    subject.user_id = "ss"
-    expect(subject).to_not be_valid
+    @like.user_id = 'ss'
+    expect(@like).to_not be_valid
   end
   it 'if post_id is integer' do
-    subject.post_id = "123"
-    expect(subject).to_not be_valid
+    @like.post_id = '123'
+    expect(@like).to_not be_valid
   end
 end
