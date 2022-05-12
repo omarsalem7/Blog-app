@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @new_post.user = current_user
 
     if @new_post.save
-      flash[:notice] = 'You have successfully created a new post.'
+      flash.now[:notice] = 'You have successfully created a new post.'
       @new_post.update_post_counter
       redirect_to user_path(@new_post.user_id)
     else
