@@ -1,6 +1,5 @@
 <section class="mx-auto pt-3" style="width: 50%;">
   <h1>New post</h1>
-  <%= debug @new_post.errors.any? %>
   <% if @new_post.errors.any? %>
     <div class="alert alert-danger">
       <% @new_post.errors.full_messages.each do |message| %>

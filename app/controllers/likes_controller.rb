@@ -12,7 +12,7 @@ class LikesController < ApplicationController
 
     if @new_like.save
       @new_like.update_like_counter
-      redirect_to user_post_path(user_id: @post.user_id, id: @post.id)
+      redirect_to user_post_path(user_id: @post.user_id, id: @post.id), notice: 'You liked this post successfully'
     else
       redirect_to user_post_path(user_id: @post.author_id, id: @post.id),
                   alert: 'An error occurred while creating the like'

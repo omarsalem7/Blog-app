@@ -18,6 +18,14 @@ To get a local copy up and running follow these simple steps.
 $ git clone https://github.com/omarsalem7/Blog-app
 $ cd Blog-app
 $ bundle install 
+$ rake db:create 
+To get fake data to test run:
+$ rake db:seed 
+$ rake db:migrate 
+```
+To run tests for models
+```
+rspec spec/models
 ```
 
 ## Authors
