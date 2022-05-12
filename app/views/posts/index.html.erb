@@ -29,7 +29,7 @@
       </div>
       <ul class="comments">
         Comments:
-        <% post.recent_five_comments.each do |comment|%>
+        <% post.recent_five_comments.includes(:user).each do |comment|%>
           <li><%= comment.user.name %> : <%= comment.text %></li>
         <% end %>
       </ul>
