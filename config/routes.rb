@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
   end 
 
+  # post '/users/:id/posts/:id/new', to:'users#new'
 end 
 

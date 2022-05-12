@@ -8,7 +8,7 @@
       </div>
     </div>
     <p><%= @post.text%></p>
-    <div class="react-bar mt-2 d-flex justify-content-between">
+    <div class="react-bar mt-2 d-flex justify-content-between">      
       <%= form_with model: @new_like, url: user_post_likes_path(post_id: @post.id)  do |form|  %>
         <%= form.submit "Add like 👍" ,class: "react-btn" %>
       <% end %>

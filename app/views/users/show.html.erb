@@ -13,7 +13,6 @@
   <div class='border border-dark p-4'>
     <h3>Bio</h3>
     <%= @user.bio %>
- 
   </div>
   <div class='posts mt-5'>
     <% @user.recent_posts.each_with_index do |post,index| %>
@@ -27,5 +26,5 @@
       </div>
     <% end %>
   </div>
-  <a href="<%= @user.id%>/posts" class="d-flex justify-content-center"> See all posts</a>
+  <%= link_to "See all posts", user_posts_path(@user.id) , class: "d-flex justify-content-center" %>
 </section>

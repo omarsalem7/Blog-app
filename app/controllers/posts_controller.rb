@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @likes = @post.likes
+    @user_s=User.find(@post.user_id)
   end
 
   def new
@@ -20,11 +21,11 @@ class PostsController < ApplicationController
     @new_post.user = current_user
 
     if @new_post.save
-      @new_post.update_post_counter
       flash[:notice] = 'You have successfully created a new post.'
-      redirect_to user_path(@new_post.user_id), notice: 'Post created successfully'
+      @new_post.update_post_counter
+      redirect_to user_path(@new_post.user_id)
     else
-      render :new, alert: 'An error occurred while creating the post'
+      render :new, alert: 'An error has occurred while creating the post'
     end
   end
 
