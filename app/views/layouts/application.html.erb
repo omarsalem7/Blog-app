@@ -16,10 +16,14 @@
         <a class="navbar-brand" href="/"> 💓 Blog</a>
       </div>
     </nav>
+    <% flash.each do |name, msg| -%>
+      <div class="alert alert-success" role="alert">
+        <%= msg %>
+      </div>
+    <% end -%>
     <div class="container" style="padding-bottom:50px">
       <%= yield %>
     </div>
-    <%# <footer class="fixed-bottom">footer</footer> %>
     <footer class="mt-4 d-flex justify-content-center fixed-bottom navbar navbar-light bg-light">
       <span class="fs-6 my-2">Made by @omar</span>
     </footer>

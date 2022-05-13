@@ -5,6 +5,8 @@ ruby '3.1.1'
 
 gem 'htmlbeautifier'
 
+gem 'bullet', group: 'development'
+
 gem 'ffi', '~> 1.15', '>= 1.15.5'
 # linters installitions
 gem 'rubocop', '>= 1.0', '< 2.0'
