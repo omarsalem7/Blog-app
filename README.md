@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/ROR-Template-blueviolet)
+![](https://img.shields.io/badge/Blog-App-blueviolet)
 
 # Blog App
 
