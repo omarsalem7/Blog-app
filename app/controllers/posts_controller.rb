@@ -8,7 +8,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @likes = @post.likes
-    @user_s = User.find(@post.user_id)
   end
 
   def new
