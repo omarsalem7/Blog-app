@@ -13,6 +13,55 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+  --primary: #ddd;
+  --dark: rgb(211, 102, 0);
+  --light: #fff;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  --link: #758085;
+}
+
+.users {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6%;
+  padding-bottom: 50px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.post {
+  box-shadow: var(--shadow);
+}
+
+.link-to {
+  text-decoration: underline;
+  color: var(--link);
+}
+
+a.link-to:hover {
+  color: var(--link);
+}
+
+.link-react {
+  color: var(--link);
+  cursor: pointer;
+}
+
+a.link-react:hover {
+  color: var(--link);
+}
+
+.post .value {
+  color: var(--dark);
+}
+
 a {
   text-decoration: none;
 }
@@ -21,19 +70,13 @@ a {
   height: 150px;
 }
 
-.commentIcon:hover,
-.likeIcon:hover {
-  color: rgb(240, 148, 0);
-  cursor: pointer;
-}
-
 .react-btn {
   all: unset;
   cursor: pointer;
-  color: rgb(31, 31, 255);
+  color: var(--link);
 }
 
 .react-btn:hover,
 .react-bar a:hover {
-  color: chocolate;
+  color: var(--dark);
 }

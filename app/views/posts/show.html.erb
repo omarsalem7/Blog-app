@@ -1,24 +1,35 @@
 <section class="mt-4">
-  <div class="border border-dark p-2 mb-2">
-    <div class="d-flex justify-content-between">
-      <h3>post #<%= @post.id %> by <%= @post.user.name %></h3>
-      <div class="">
+  <div class="post p-2 mb-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <h3 class="display-5"><%= @post.title %> </h3>
+        <small> &nbsp;&nbsp;by <%= @post.user.name %></small>
+      </div>
+      <div >
         <span>Comments: <%= @post.comments_counter || 0 %> </span>
         <span>, Likes: <%= @post.likes_counter || 0 %></span>
       </div>
     </div>
     <p><%= @post.text%></p>
-    <div class="react-bar mt-2 d-flex justify-content-between">      
+    <div class="react-bar mt-2 d-flex justify-content-between">
       <%= form_with model: @new_like, url: user_post_likes_path(post_id: @post.id)  do |form|  %>
-        <%= form.submit "Add like 👍" ,class: "react-btn" %>
+        <%= form.submit "Like 👍" ,class: "react-btn" %>
       <% end %>
-      <%= link_to "Add comment 💬", new_user_post_comment_path(user_id: @post.user_id, post_id: @post.id ) %>
+      <%= link_to "Comment 💬", new_user_post_comment_path(user_id: @post.user_id, post_id: @post.id), class: "link-react" %>
     </div>
   </div>
-  <ul class="comments">
-    Comments:
-    <% @comments.includes(:user).each do |comment|%>
-      <li><%= comment.user.name %> : <%= comment.text %></li>
+  <div class="comments">
+    <% if @comments.length > 0 %>
+      Responses (<%= @comments.length %>)  
     <% end %>
-  </ul>
+    <% @comments.includes(:user).each do |comment|%>
+      <div class="d-flex flex-row py-1">
+        <div style="width:8%"><img src="<%= comment.user.photo%>" style="width:100%" alt="user avater"/></div>
+        <div class="">
+          <div><span class="fw-bold"><%= comment.user.name %> </span> says: </div>
+          <div> <%= comment.text %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </section>

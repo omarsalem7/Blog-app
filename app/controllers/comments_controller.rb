@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
       @new_comment.update_comment_counter
       redirect_to user_post_path(current_user.id, @post.id)
     else
-      render :new, alert: 'An error occurred while creating the post'
+      render :new, alert: 'An error occurred while creating the comment'
     end
   end
 
