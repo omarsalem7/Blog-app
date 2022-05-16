@@ -5,6 +5,8 @@ ruby '3.1.1'
 
 gem 'htmlbeautifier'
 
+gem 'letter_opener'
+
 # gem 'bullet', group: 'development'
 
 # add device for authentication
