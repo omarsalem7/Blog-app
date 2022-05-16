@@ -78,8 +78,18 @@ a {
 }
 
 .react-btn:hover,
-.react-bar a:hover {
+.react-bar a:hover,
+.home-blog:hover {
   color: var(--dark);
+}
+
+.nav-list {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.home-blog {
+  color: var(--link);
 }
 
 @media (max-width: 700px) {
