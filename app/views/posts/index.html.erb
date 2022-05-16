@@ -32,7 +32,7 @@
       <div class="pb-4">
         <% post.recent_five_comments.includes(:user).each do |comment|%>
           <div class="d-flex flex-row py-1">
-            <div style="width:8%"><img src="<%= comment.user.photo%>" style="width:100%" alt="user avater"/></div>
+            <div style="width: var(--comment);"><img src="<%= comment.user.photo%>" style="width:100%" alt="user avater"/></div>
             <div class="">
               <div><span class="fw-bold"><%= comment.user.name %> </span> says: </div>
               <div> <%= comment.text %></div>

@@ -5,7 +5,12 @@ ruby '3.1.1'
 
 gem 'htmlbeautifier'
 
-gem 'bullet', group: 'development'
+gem 'letter_opener'
+
+# gem 'bullet', group: 'development'
+
+# add device for authentication
+gem 'devise'
 
 gem 'ffi', '~> 1.15', '>= 1.15.5'
 # linters installitions
