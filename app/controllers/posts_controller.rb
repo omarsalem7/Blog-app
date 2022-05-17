@@ -29,7 +29,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   def destroy
     deleted_post = Post.find(params[:id])
     user = User.find(deleted_post.user_id)

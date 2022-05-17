@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -7,7 +5,7 @@ class Ability
     can :read, :all if user.nil?
     return if user.nil?
 
-    can :manage, :all if user.role =='admin'
+    can :manage, :all if user.role == 'admin'
     can :read, :all if user.role == 'user'
     can :manage, Post, user_id: user.id
     can :manage, Comment, user_id: user.id
