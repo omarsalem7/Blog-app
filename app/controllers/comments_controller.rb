@@ -19,6 +19,18 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    deleted_comment = Comment.find(params[:id])
+    post = Post.find(params[:post_id])
+    post.comments_counter -= 1
+    deleted_comment.destroy
+    if post.save
+      redirect_to user_post_path(params[:user_id], post.id), notice: 'You have deleted the comment successfully!'
+    else
+      render :new, alert: 'An error has occurred while deleting the comment'
+    end
+  end
+
   private
 
   def comment_params
