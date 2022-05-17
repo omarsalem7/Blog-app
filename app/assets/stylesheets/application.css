@@ -92,6 +92,10 @@ a {
   padding: 10px 0;
 }
 
+.com-del {
+  color: #1775bb;
+}
+
 @media (max-width: 700px) {
   :root {
     --comment: 12%;

@@ -16,6 +16,9 @@
         <%= form.submit "Like 👍" ,class: "react-btn" %>
       <% end %>
       <%= link_to "Comment 💬", new_user_post_comment_path(user_id: @post.user_id, post_id: @post.id), class: "link-react" %>
+      <% if can? :destory, @post%>
+        <%= button_to "Delete 🗑️", user_post_path(user_id:@post.user_id,id: @post.id) ,method: :delete, class: "react-btn" %>
+      <% end %>
     </div>
   </div>
   <div class="comments">
@@ -28,6 +31,10 @@
         <div class="">
           <div><span class="fw-bold"><%= comment.user.name %> </span> says: </div>
           <div> <%= comment.text %></div>
+          
+          <% if can? :destory, comment%>
+            <%= button_to "Delete 🗑️", user_post_comment_path(user_id:comment.user_id,post_id: comment.post_id,id:comment.id) ,method: :delete, class: "react-btn com-del" %>
+          <% end %>
         </div>
       </div>
     <% end %>
