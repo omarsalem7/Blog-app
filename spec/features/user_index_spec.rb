@@ -4,6 +4,9 @@ RSpec.describe 'User index page', type: :feature do
   before(:each) do
     @user = User.create(name: 'omar', photo: 'image_link', bio: 'Developer from Egypt', email: 'test@email.com',
                 password: 'password', confirmed_at: Time.now)
+    @post = Post.create(user: @user, title: 'My title', text: 'My text')
+    @like = Like.create(user: @user, post_id: @post.id)
+    @post.update_post_counter
     visit new_user_session_path
     fill_in 'Email', with: 'test@email.com'
     fill_in 'Password', with: 'password'
@@ -19,7 +22,7 @@ RSpec.describe 'User index page', type: :feature do
   end
 
   it 'number of posts of the user' do
-    expect(page).to have_content 'Number of posts: 0'
+    expect(page).to have_content 'Number of posts: 1'
   end
 
   it 'When I click on a user, I am redirected to that users show page' do
