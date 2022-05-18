@@ -28,8 +28,8 @@ RSpec.describe 'Login page', type: :feature do
 
   it 'with incorrect data, I get a detailed error' do
     visit new_user_session_path
-    fill_in 'Email', with: 'testsdbsb@email.com'
-    fill_in 'Password', with: 'passwordsdbsfbsb'
+    fill_in 'Email', with: 'test123@email.com'
+    fill_in 'Password', with: 'password123'
     click_button 'Log in'
     expect(page).to have_content 'Invalid Email or password.'
   end
