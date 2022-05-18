@@ -6,8 +6,8 @@ RSpec.describe 'Post index page', type: :feature do
                         password: 'password', confirmed_at: Time.now)
     @post = Post.create(user: @user, title: 'title', text: 'text')
     (1..5).each do |i|
-        @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!" 
-        @post.update_post_counter
+      @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!"
+      @post.update_post_counter
     end
     @comment = Comment.create(text: 'My first comment', user: @user, post_id: @post.id)
     @comment.update_comment_counter
