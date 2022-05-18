@@ -19,7 +19,7 @@ RSpec.describe 'Post index page', type: :feature do
     click_button 'Log in'
     visit user_posts_path @user.id
   end
-
+  describe 'tests for view posts#index' do
   it 'see the users profile picture.' do
     expect(page.find(".userCard img")['src']).to have_content @user.photo
   end
@@ -57,5 +57,6 @@ RSpec.describe 'Post index page', type: :feature do
     expect(page).to have_content 'Comment'
     expect(page).to have_content 'Like'
     expect(page).to have_content 'Delete'
+  end
   end
 end

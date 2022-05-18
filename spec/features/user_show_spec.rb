@@ -16,7 +16,7 @@ RSpec.describe 'User show page', type: :feature do
     click_button 'Log in'
     visit user_path @user.id
   end
-
+  describe 'tests for view users#show' do
   it 'I can see the users profile picture.' do
     expect(page.find("img")['src']).to have_content @user.photo
   end
@@ -55,4 +55,5 @@ RSpec.describe 'User show page', type: :feature do
     click_on 'See all posts'
     expect(current_path).to eq user_posts_path user_id: User.last.id
   end
+end
 end

@@ -12,7 +12,7 @@ RSpec.describe 'User index page', type: :feature do
     fill_in 'Password', with: 'password'
     click_button 'Log in'
   end
-
+  describe 'tests for view users#index' do
   it 'Can see the name of user' do
     expect(page).to have_content 'omar'
   end
@@ -29,4 +29,5 @@ RSpec.describe 'User index page', type: :feature do
     click_link("Read More")
     expect(current_path).to eq user_path @user.id
   end
+end
 end

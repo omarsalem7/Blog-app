@@ -6,7 +6,7 @@ RSpec.describe 'Login page', type: :feature do
                 password: 'password', confirmed_at: Time.now)
     visit user_session_path
   end
-
+  describe 'tests for view login' do
   it 'I can see the username and password inputs and the Submit button.' do
     expect(page).to have_field(type: 'email')
     expect(page).to have_field(type: 'password')
@@ -41,4 +41,5 @@ RSpec.describe 'Login page', type: :feature do
     click_button 'Log in'
     expect(current_path).to eq root_path
   end
+end
 end
