@@ -5,7 +5,10 @@ RSpec.describe 'User show page', type: :feature do
     @user = User.create(name: 'omar', photo: 'image_link.jpg', bio: 'Developer from Macedonia', email: 'test@email.com',
                         password: 'password', confirmed_at: Time.now)
     @post = Post.create(user: @user, title: 'title', text: 'text')
-    (1..5).each { |i| @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!" }
+    (1..5).each do |i|
+        @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!" 
+        @post.update_post_counter
+    end
     @like = Like.create(user: @user, post_id: @post.id)
     visit new_user_session_path
     fill_in 'Email', with: 'test@email.com'
@@ -22,15 +25,15 @@ RSpec.describe 'User show page', type: :feature do
     expect(page).to have_content 'omar'
   end
 
-  it 'Can see the number of posts the user has written.' do
-    expect(page).to have_content 'Number of posts: 0'
+  it 'test the number of posts ' do
+    expect(page).to have_content 'Number of posts: 5'
   end
 
-  it 'can see the users bio' do
+  it 'see the users bio' do
     expect(page).to have_content 'Developer from Macedonia'
   end
 
-  it 'can see the users first 3 posts' do
+  it 'see the users first 3 posts' do
     expect(page).to have_content 'Post number 5'
     expect(page).to have_content 'Post number 4'
     expect(page).to have_content 'Post number 3'
