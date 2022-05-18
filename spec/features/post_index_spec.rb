@@ -2,12 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'Post index page', type: :feature do
   before(:each) do
-    @user = User.create(name: 'Nuri', photo: 'image_link.jpg', bio: 'Developer from Macedonia', email: 'test@email.com',
+    @user = User.create(name: 'omar', photo: 'image_link.jpg', bio: 'Developer from Egypt', email: 'test@email.com',
                         password: 'password', confirmed_at: Time.now)
-    (1..5).each { |i| @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!" }
-    @post = Post.create(author: @user, title: 'My title', text: 'My text')
-    @comment = Comment.create(text: 'My first comment', author: @user, post_id: @post.id)
-    @like = Like.create(author: @user, post_id: @post.id)
+    @post = Post.create(user: @user, title: 'title', text: 'text')
+    (1..5).each do |i|
+        @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!" 
+        @post.update_post_counter
+    end
+    @comment = Comment.create(text: 'My first comment', user: @user, post_id: @post.id)
+    @comment.update_comment_counter
+    @like = Like.create(user: @user, post_id: @post.id)
+    @like.update_like_counter
     visit new_user_session_path
     fill_in 'Email', with: 'test@email.com'
     fill_in 'Password', with: 'password'
@@ -15,40 +20,42 @@ RSpec.describe 'Post index page', type: :feature do
     visit user_posts_path @user.id
   end
 
-  it 'I can see the users profile picture.' do
-    expect(page.find('img')['src']).to have_content 'image_link.jpg'
+  it 'see the users profile picture.' do
+    expect(page.find(".userCard img")['src']).to have_content @user.photo
   end
 
-  it 'Can see the username.' do
-    expect(page).to have_content 'Nuri'
+  it 'name of user.' do
+    expect(page).to have_content 'omar'
   end
 
-  it 'Can see the number of posts the user has written.' do
-    expect(page).to have_content 'posts: 6'
+  it 'see the number of posts the user has written.' do
+    expect(page).to have_content 'Number of posts: 5'
   end
 
-  it 'Can see a posts title' do
-    expect(page).to have_content 'My title'
+  it 'see a posts title' do
+    expect(page).to have_content 'title'
   end
 
-  it 'Can see some of the posts body' do
-    expect(page).to have_content 'My text'
+  it 'see some of the posts body' do
+    expect(page).to have_content 'text'
   end
 
-  it 'Can see the first comments on a post' do
+  it 'see the first comments on a post' do
     expect(page).to have_content 'My first comment'
   end
 
-  it 'Can see how many comments a post has' do
+  it 'see how many comments a post has' do
     expect(page).to have_content 'Comments: 1'
   end
 
-  it 'Can see how many likes a post has' do
+  it 'see how many likes a post has' do
     expect(page).to have_content 'Likes: 1'
   end
 
-  it 'When I click on a post, it redirects me to that posts show page' do
-    click_link(@post.id)
-    expect(current_path).to eq user_post_path(user_id: @post.author_id, id: @post.id)
+  it 'When I click a user post, it redirects me to that post s show page.' do
+    visit user_post_path(@user.id, @post.id)
+    expect(page).to have_content 'Comment'
+    expect(page).to have_content 'Like'
+    expect(page).to have_content 'Delete'
   end
 end

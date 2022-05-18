@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User show page', type: :feature do
   before(:each) do
-    @user = User.create(name: 'omar', photo: 'image_link.jpg', bio: 'Developer from Macedonia', email: 'test@email.com',
+    @user = User.create(name: 'omar', photo: 'image_link.jpg', bio: 'Developer from Egypt', email: 'test@email.com',
                         password: 'password', confirmed_at: Time.now)
     @post = Post.create(user: @user, title: 'title', text: 'text')
     (1..5).each do |i|
@@ -21,7 +21,7 @@ RSpec.describe 'User show page', type: :feature do
     expect(page.find("img")['src']).to have_content @user.photo
   end
 
-  it 'Can see the username.' do
+  it 'Can see the name of user' do
     expect(page).to have_content 'omar'
   end
 
@@ -30,7 +30,7 @@ RSpec.describe 'User show page', type: :feature do
   end
 
   it 'see the users bio' do
-    expect(page).to have_content 'Developer from Macedonia'
+    expect(page).to have_content 'Developer from Egypt'
   end
 
   it 'see the users first 3 posts' do
@@ -44,7 +44,7 @@ RSpec.describe 'User show page', type: :feature do
     expect(page.find('a', text: 'See all posts')).to have_content 'See all posts'
   end
 
-  it 'When I click a user s post, it redirects me to that post s show page.' do
+  it 'When I click a user post, it redirects me to that post s show page.' do
     visit user_post_path(@user.id, @post.id)
     expect(page).to have_content 'Comment'
     expect(page).to have_content 'Like'
