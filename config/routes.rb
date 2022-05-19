@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     end
   end 
 
-  # post '/users/:id/posts/:id/new', to:'users#new'
+
+  namespace :api do
+    resources :users, only:  [:index, :show] do
+      resources :posts, only:  [:index] do
+        resources :comments, only:  [:index, :create]
+      end
+    end
+  end
+
 end 
 
