@@ -1,5 +1,7 @@
-class Api::UsersController < ApplicationController 
-    def index 
-        @users=User.all
-    end
+class Api::UsersController < ApplicationController
+  before_action :authorize_request
+  def index
+    @users = User.all
+    render json: @users, status: :ok
+  end
 end
