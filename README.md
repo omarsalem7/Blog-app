@@ -26,6 +26,7 @@ $ rake db:migrate
 To run tests for models
 ```
 rspec spec/models
+rspec spec/features 
 ```
 
 ## Authors
