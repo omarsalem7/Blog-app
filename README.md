@@ -9,6 +9,7 @@
 
 - Ruby
 - Ruby on rails
+- Device
 - 💓
 
 # Get Started
